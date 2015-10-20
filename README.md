@@ -245,7 +245,7 @@ var map = {
 	}
 };
 
-// --bool;
+// --bool
 var out = argv( map );
 /*
 	{
@@ -339,7 +339,7 @@ var out = argv( map );
 	}
 */
 
-// --regexp=beep;
+// --regexp=beep
 var out = argv( map );
 // => throws
 ```
