@@ -1,0 +1,65 @@
+{
+  "name": "argv-to-object",
+  "version": "0.0.0",
+  "description": "Maps command-line arguments to a configuration object.",
+  "author": {
+    "name": "Athan Reines",
+    "email": "kgryte@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Athan Reines",
+      "email": "kgryte@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "mocha",
+    "test-cov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/coverage -- -R spec",
+    "codecov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/codecov/coverage --report lcovonly -- -R spec && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
+  "main": "./lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kgryte/node-argv-to-object.git"
+  },
+  "keywords": [
+    "utilities",
+    "utils",
+    "argv",
+    "command-line",
+    "cli",
+    "arguments",
+    "object",
+    "config",
+    "configuration",
+    "map",
+    "obj",
+    "convert",
+    "coerce"
+  ],
+  "bugs": {
+    "url": "https://github.com/kgryte/node-argv-to-object/issues"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "utils-deep-set": "^1.0.1",
+    "utils-json-parse": "^1.0.0",
+    "utils-merge2": "^1.0.0",
+    "utils-regex-from-string": "^1.0.0",
+    "validate.io-boolean-primitive": "^1.0.0",
+    "validate.io-function": "^1.0.2",
+    "validate.io-integer": "^1.0.5",
+    "validate.io-nan": "^1.0.3",
+    "validate.io-object": "^1.0.4"
+  },
+  "devDependencies": {
+    "@kgryte/noop": "^1.0.0",
+    "chai": "3.x.x",
+    "codecov.io": "^0.1.5",
+    "istanbul": "^0.3.0",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "mocha": "2.x.x"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,71 @@
+{
+	"env": {
+		"keypath": "env",
+		"default": "dev"
+	},
+	"port": {
+		"keypath": "server.port",
+		"type": "integer",
+		"default": 8080,
+		"alias": [
+			"p"
+		],
+		"radix": 10
+	},
+	"ssl": {
+		"keypath": "server.ssl",
+		"type": "boolean"
+	},
+	"loglevel": {
+		"keypath": "logger.level",
+		"type": "string",
+		"default": "info"
+	},
+	"num": {
+		"keypath": "num",
+		"type": "number"
+	},
+	"int": {
+		"keypath": "int",
+		"type": "integer",
+		"radix": 10
+	},
+	"bool": {
+		"keypath": "bool",
+		"type": "boolean",
+		"default": false
+	},
+	"obj": {
+		"keypath": "obj",
+		"type": "object"
+	},
+	"arr": {
+		"keypath": "arr",
+		"type": "object"
+	},
+	"default": {
+		"keypath": "default",
+		"type": "object",
+		"default": null
+	},
+	"nested": {
+		"keypath": "a.b.c.d",
+		"type": "object"
+	},
+	"date": {
+		"keypath": "date",
+		"type": "date"
+	},
+	"regex": {
+		"keypath": "re",
+		"type": "regexp"
+	},
+	"custom": {
+		"keypath": "custom",
+		"type": "custom_type"
+	},
+	"unrecognized_type": {
+		"keypath": "unrecognized_type",
+		"type": "adkbjakdjaj"
+	}
+}
