@@ -294,6 +294,196 @@ describe( 'argv-to-object', function tests() {
 		process.argv = o;
 	});
 
+	it( 'should handle repeated arguments (strings)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': true,
+			'default': null,
+			'mstr': [
+				'beep',
+				'boop',
+				'bop',
+				'bap'
+			]
+		};
+		process.argv = [
+			null,
+			null,
+			'--mstr=beep',
+			'--mstr',
+			'boop',
+			'--mstr=bop',
+			'--mstr',
+			'bap'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
+	it( 'should handle repeated arguments (strings)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': true,
+			'default': null,
+			'mstr': [
+				'beep'
+			]
+		};
+		process.argv = [
+			null,
+			null,
+			'--mstr=beep'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
+	it( 'should handle repeated arguments (numbers)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': true,
+			'default': null,
+			'mnum': [ 1, 2, 3, 4 ]
+		};
+		process.argv = [
+			null,
+			null,
+			'--mnum=1',
+			'--mnum',
+			'2',
+			'--mnum=3',
+			'--mnum',
+			'4'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
+	it( 'should handle repeated arguments where one or more arguments is invalid', function test() {
+		var o;
+
+		o = process.argv;
+
+		process.argv = [
+			null,
+			null,
+			'--mnum=1',
+			'--mnum',
+			'2',
+			'--mnum=beep',
+			'--mnum',
+			'4'
+		];
+
+		expect( badValue ).to.throw( TypeError );
+
+		process.argv = o;
+
+		function badValue() {
+			argv( map );
+		}
+	});
+
+	it( 'should handle repeated arguments where the `multiple` option is falsey', function test() {
+		var o;
+
+		o = process.argv;
+
+		process.argv = [
+			null,
+			null,
+			'--num=1',
+			'--num',
+			'2',
+			'--num=beep',
+			'--num',
+			'4'
+		];
+
+		expect( badValue ).to.throw( Error );
+
+		process.argv = o;
+
+		function badValue() {
+			argv( map );
+		}
+	});
+
+	it( 'should handle repeated arguments (booleans)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': true,
+			'default': null,
+			'mbool': true
+		};
+		process.argv = [
+			null,
+			null,
+			'--mbool',
+			'--mbool',
+			'--mbool',
+			'--mbool'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
 	it( 'should return an object containing only default values if no command-line arguments map those specified in the mapping object', function test() {
 		var expected;
 		var o;

@@ -117,6 +117,10 @@ All command-line argument value `types` support the following `options`:
 *	__default__: default value.
 *	__alias__: `array` of command-line argument aliases.
 
+Except for `boolean`, all command-line argument value `types` support the following `options`:
+
+*	__multiple__: `boolean` indicating whether a command-line argument can be provided multiple times. If `true`, the command-line argument value is __always__ an `array` containing values of a specified `type`. Default: `false`.
+
 
 ===
 #### string
@@ -456,10 +460,15 @@ var map = {
 	'regex': {
 		'keypath': 're',
 		'type': 'regexp'
+	},
+	'mnum': {
+		'keypath': 'mnum',
+		'type': 'integer',
+		'multiple': true
 	}
 };
 
-// --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool
+// --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool --mnum 1 --mnum=2 --mnum=3 --mnum 4
 var out = argv( map );
 /*
 	{
@@ -488,7 +497,8 @@ var out = argv( map );
 			}
 		},
 		'date': <Date>,
-		're': /\w+/
+		're': /\w+/,
+		'mnum': [ 1, 2, 3, 4 ]
 	}
 */
 ```
@@ -496,7 +506,7 @@ var out = argv( map );
 To run the example code from the top-level application directory,
 
 ``` bash
-$ node ./examples/index.js --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool
+$ node ./examples/index.js --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool --mnum 1 --mnum=2 --mnum=3 --mnum 4
 ```
 
 

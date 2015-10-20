@@ -48,5 +48,10 @@
 	"regex": {
 		"keypath": "re",
 		"type": "regexp"
+	},
+	"mnum": {
+		"keypath": "mnum",
+		"type": "integer",
+		"multiple": true
 	}
 }

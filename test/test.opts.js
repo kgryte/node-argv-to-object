@@ -33,6 +33,8 @@ describe( 'opts', function tests() {
 				'loglevel',
 				'num',
 				'int',
+				'mstr',
+				'mnum',
 				'obj',
 				'arr',
 				'default',
@@ -46,7 +48,8 @@ describe( 'opts', function tests() {
 				'ssl',
 				'bool',
 				'bool2',
-				'bool3'
+				'bool3',
+				'mbool'
 			],
 			'alias': {
 				'port': [

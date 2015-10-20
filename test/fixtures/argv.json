@@ -44,6 +44,21 @@
 		"keypath": "bool3",
 		"type": "boolean"
 	},
+	"mstr": {
+		"keypath": "mstr",
+		"type": "string",
+		"multiple": true
+	},
+	"mnum": {
+		"keypath": "mnum",
+		"type": "number",
+		"multiple": true
+	},
+	"mbool": {
+		"keypath": "mbool",
+		"type": "boolean",
+		"multiple": true
+	},
 	"obj": {
 		"keypath": "obj",
 		"type": "object"
