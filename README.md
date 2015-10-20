@@ -109,12 +109,10 @@ The `function` accepts the following `options`:
 	*/
 	```
 
-
-
 ---
 ## Types
 
-__All__ command-line argument value `types` support the following `options`:
+All command-line argument value `types` support the following `options`:
 
 *	__default__: default value.
 *	__alias__: `array` of command-line argument aliases.
@@ -123,7 +121,7 @@ __All__ command-line argument value `types` support the following `options`:
 ===
 #### string
 
-(__default__) Coerce a command-line argument value to a `string`. 
+Coerce a command-line argument value to a `string`. 
 
 ``` javascript
 var map = {
@@ -286,7 +284,7 @@ var out = argv( map );
 	}
 */
 
-// -obj='{"beep:"boop"}'
+// --obj='{"beep:"boop"}'
 var out = argv( map );
 // => throws
 ```
@@ -349,7 +347,7 @@ var out = argv( map );
 ---
 ## Notes
 
-*	If a command-line argument does __not__ exist and no __default__ value specified, the corresponding configuration `keypath` will __not__ exist in the output `object`.
+*	If a command-line argument does __not__ exist and no __default__ value is specified, the corresponding configuration `keypath` will __not__ exist in the output `object`.
 
 	``` javascript
 	var map = {
