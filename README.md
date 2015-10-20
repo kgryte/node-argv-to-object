@@ -49,6 +49,7 @@ var map = {
 	}
 };
 
+// --env=test --port 7331 --ssl --loglevel debug
 var out = argv( map );
 /*
 	{
@@ -117,8 +118,9 @@ __All__ command-line argument value `types` support the following `options`:
 
 *	__default__: default value.
 *	__alias__: `array` of command-line argument aliases.
- 
 
+
+===
 #### string
 
 (__default__) Coerce a command-line argument value to a `string`. 
@@ -203,7 +205,7 @@ var out = argv( map );
 // => throws
 ```
 
-The `integer` type has the following `options`:
+The `integer` type supports the following `options`:
 
 *	__radix__: an `integer` on the interval `[2,36]`. Default: `10`.
 
@@ -347,7 +349,7 @@ var out = argv( map );
 ---
 ## Notes
 
-*	If a command-line argument does __not__ exist, the corresponding configuration `keypath` will __not__ exist in the output `object`.
+*	If a command-line argument does __not__ exist and no __default__ value specified, the corresponding configuration `keypath` will __not__ exist in the output `object`.
 
 	``` javascript
 	var map = {
