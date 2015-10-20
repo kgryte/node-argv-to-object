@@ -418,6 +418,7 @@ var map = {
 	}
 };
 
+// --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/'
 var out = argv( map );
 /*
 	{
