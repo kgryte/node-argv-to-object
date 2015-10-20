@@ -252,6 +252,45 @@ var out = argv( map );
 */
 ```
 
+Prefixing `--no-*` to a `boolean` command-line argument will override a `default` value.
+
+``` javascript
+var map = {
+	'bool': {
+		'keypath': 'bool',
+		'type': 'boolean',
+		'default': true
+	}
+};
+
+// --no-bool
+var out = argv( map );
+/*
+	{
+		'bool': false
+	}
+*/
+```
+
+If a `boolean` command-line argument does __not__ have a `default` value, using the `--no-*` prefix is equivalent to not specifying the command-line argument.
+
+
+``` javascript
+var map = {
+	'bool': {
+		'keypath': 'bool',
+		'type': 'boolean'
+	}
+};
+
+// --no-bool
+var out = argv( map );
+/*
+	{}
+*/
+```
+
+
 
 ===
 #### object
@@ -402,6 +441,10 @@ var map = {
 		'keypath': 'arr',
 		'type': 'object'
 	},
+	'bool': {
+		'keypath': 'bool',
+		'type': 'boolean'
+	},
 	'nested': {
 		'keypath': 'a.b.c.d',
 		'type': 'object'
@@ -416,7 +459,7 @@ var map = {
 	}
 };
 
-// --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/'
+// --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool
 var out = argv( map );
 /*
 	{
@@ -453,7 +496,7 @@ var out = argv( map );
 To run the example code from the top-level application directory,
 
 ``` bash
-$ node ./examples/index.js --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/'
+$ node ./examples/index.js --env=test --ssl --p 7331 --num='3.14' --obj='{"hello":"world"}' --arr='[1,2,3,4]' --nested='{"beep":"boop"}' --date="2015-10-17" --regex '/\\w+/' --no-bool
 ```
 
 

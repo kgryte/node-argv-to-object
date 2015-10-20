@@ -33,6 +33,10 @@
 		"keypath": "arr",
 		"type": "object"
 	},
+	"bool": {
+		"keypath": "bool",
+		"type": "boolean"
+	},
 	"nested": {
 		"keypath": "a.b.c.d",
 		"type": "object"

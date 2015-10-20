@@ -35,6 +35,15 @@
 		"type": "boolean",
 		"default": false
 	},
+	"bool2": {
+		"keypath": "bool2",
+		"type": "boolean",
+		"default": true
+	},
+	"bool3": {
+		"keypath": "bool3",
+		"type": "boolean"
+	},
 	"obj": {
 		"keypath": "obj",
 		"type": "object"

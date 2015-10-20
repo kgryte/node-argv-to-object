@@ -131,6 +131,7 @@ describe( 'argv-to-object', function tests() {
 			're': /\w+/,
 			'int': -11,
 			'bool': false,
+			'bool2': true,
 			'default': null
 		};
 
@@ -183,6 +184,7 @@ describe( 'argv-to-object', function tests() {
 				'level': 'info'
 			},
 			'bool': false,
+			'bool2': true,
 			'default': null,
 			'custom': 30
 		};
@@ -234,6 +236,64 @@ describe( 'argv-to-object', function tests() {
 		}
 	});
 
+	it( 'should handle `--no-*` command-line arguments (override default)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': false,
+			'default': null
+		};
+		process.argv = [
+			null,
+			null,
+			'--no-bool2'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
+	it( 'should handle `--no-*` command-line arguments (no default)', function test() {
+		var expected;
+		var o;
+
+		o = process.argv;
+
+		expected = {
+			'server': {
+				'port': 8080
+			},
+			'env': 'dev',
+			'logger': {
+				'level': 'info'
+			},
+			'bool': false,
+			'bool2': true,
+			'default': null
+		};
+		process.argv = [
+			null,
+			null,
+			'--no-bool3'
+		];
+
+		assert.deepEqual( argv( map ), expected );
+
+		process.argv = o;
+	});
+
 	it( 'should return an object containing only default values if no command-line arguments map those specified in the mapping object', function test() {
 		var expected;
 		var o;
@@ -249,6 +309,7 @@ describe( 'argv-to-object', function tests() {
 				'level': 'info'
 			},
 			'bool': false,
+			'bool2': true,
 			'default': null
 		};
 		process.argv = [ null, null ];

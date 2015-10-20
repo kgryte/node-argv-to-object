@@ -44,7 +44,9 @@ describe( 'opts', function tests() {
 			],
 			'boolean': [
 				'ssl',
-				'bool'
+				'bool',
+				'bool2',
+				'bool3'
 			],
 			'alias': {
 				'port': [
@@ -56,7 +58,8 @@ describe( 'opts', function tests() {
 				'loglevel': 'info',
 				'port': 8080,
 				'default': null,
-				'bool': false
+				'bool': false,
+				'bool2': true
 			}
 		};
 
