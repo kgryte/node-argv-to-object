@@ -53,13 +53,13 @@ var map = {
 var out = argv( map );
 /*
 	{
-		'env': <string>,
+		'env': 'test',
 		'server': {
-			'port': <number>,
-			'ssl': <boolean>
+			'port': 7331,
+			'ssl': true
 		},
 		'logger': {
-			'level': <string>
+			'level': 'debug'
 		}
 	}
 */
