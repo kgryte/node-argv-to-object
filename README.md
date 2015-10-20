@@ -165,7 +165,7 @@ var map = {
 	}
 };
 
-// --num='3.14';
+// --num='3.14'
 var out = argv( map );
 /*
 	{
@@ -173,7 +173,7 @@ var out = argv( map );
 	}
 */
 
-// --num=bop;
+// --num=bop
 var out = argv( map );
 // => throws
 ```
@@ -192,7 +192,7 @@ var map = {
 	}
 };
 
-// --int=2;
+// --int=2
 var out = argv( map );
 /*
 	{
@@ -200,7 +200,7 @@ var out = argv( map );
 	}
 */
 
-// --int=beep;
+// --int=beep
 var out = argv( map );
 // => throws
 ```
@@ -218,7 +218,7 @@ The `integer` type supports the following `options`:
 		}
 	};
 
-	// --int=1;
+	// --int=1
 	var out = argv( map );
 	/*
 		{
@@ -226,7 +226,7 @@ The `integer` type supports the following `options`:
 		}
 	*/
 
-	// --int=2;
+	// --int=2
 	var out = argv( map );
 	// => throws
 	```
